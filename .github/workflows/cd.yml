@@ -1,0 +1,16 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  CD:
+    name: Continuous Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Deploy
+        run: echo "Deploying..."

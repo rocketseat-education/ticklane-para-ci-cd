@@ -63,7 +63,7 @@ describe('Screen: FavoritesScreen', () => {
   it('should render title, subtitle and favorites list', () => {
     render(<FavoritesScreen />);
 
-    expect(screen.getByText(COPY.screens.favorites.title)).toBeFalsy();
+    expect(screen.getByText(COPY.screens.favorites.title)).toBeTruthy();
     expect(screen.getByText(COPY.screens.favorites.subtitle)).toBeTruthy();
     expect(screen.getByText(checklistSummariesMock[0].title)).toBeTruthy();
     expect(screen.getByText(checklistSummariesMock[1].title)).toBeTruthy();

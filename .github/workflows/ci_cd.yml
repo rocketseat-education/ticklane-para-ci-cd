@@ -60,7 +60,7 @@ jobs:
           eas build \
           --platform ios \
           --profile production \
-          --non-interactive \ 
+          --non-interactive \
           --auto-submit \
           --no-wait
 

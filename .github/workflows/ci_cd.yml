@@ -46,9 +46,21 @@ jobs:
           expo-version: latest
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Build Android
-        run: eas build --platform android --profile preview --non-interactive --no-wait
+      
+      - name: Get Google Play Credentials
+        env:
+          GOOGLE_PLAY_CONSOLE_API: ${{ secrets.GOOGLE_PLAY_CONSOLE_API }}
+        run: |
+          echo $GOOGLE_PLAY_CONSOLE_API > google-play-console-api.b64
+          base64 -d -i google-play-console-api.b64 > google-play-console-api.json
+      
+      - name: Build and Submit Android
+        run: eas build \
+          --platform android \
+          --profile production \
+          --non-interactive \
+          --auto-submit \
+          --no-wait
 
 
       

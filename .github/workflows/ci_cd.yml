@@ -55,7 +55,9 @@ jobs:
           base64 -d -i google-play-console-api.b64 > google-play-console-api.json
       
       - name: Build and Submit Android
-        run: eas build \
+        run: |
+          eas build \
+          --profile preview \
           --platform android \
           --profile production \
           --non-interactive \

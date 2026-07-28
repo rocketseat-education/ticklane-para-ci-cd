@@ -54,6 +54,7 @@ jobs:
           echo $GOOGLE_PLAY_CONSOLE_API > google-play-console-api.b64
           base64 -d -i google-play-console-api.b64 > google-play-console-api.json
       
+      # Build and Submit Android
       - name: Build and Submit Android
         run: |
           eas build \

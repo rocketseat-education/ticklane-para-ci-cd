@@ -26,6 +26,10 @@
       "android": {
         "serviceAccountKeyPath": "./google-play-console-api.json",
         "track": "internal"
+      },
+      "ios": {
+        "appleId": "luiskeys@icloud.com",
+        "ascAppId": "6780029894"
       }
     }
   }

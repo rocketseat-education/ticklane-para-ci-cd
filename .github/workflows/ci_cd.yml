@@ -47,20 +47,20 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
       
-      - name: Get Google Play Credentials
+      - name: Get Goole Play Credentials
         env:
           GOOGLE_PLAY_CONSOLE_API: ${{ secrets.GOOGLE_PLAY_CONSOLE_API }}
         run: |
           echo $GOOGLE_PLAY_CONSOLE_API > google-play-console-api.b64
-          base64 -d -i google-play-console-api.b64 > google-play-console-api.json
-          
-      #Build and Submit Android
-      - name: Build and Submit Android
+          base64 -d google-play-console-api.b64 > google-play-console-api.json
+      
+      - name: Build and Submit IOS
         run: |
+          EXPO_APPLE_APP_SPECIFIC_PASSWORD=${{ secrets.EAS_APPLE_PASSWORD }} \
           eas build \
-          --platform android \
+          --platform ios \
           --profile production \
-          --non-interactive \
+          --non-interactive \ 
           --auto-submit \
           --no-wait
 

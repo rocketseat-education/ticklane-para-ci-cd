@@ -54,6 +54,7 @@ jobs:
           echo $GOOGLE_PLAY_CONSOLE_API > google-play-console-api.b64
           base64 -d google-play-console-api.b64 > google-play-console-api.json
       
+      # Build and Submit Android and IOS
       - name: Build and Submit Android and IOS
         run: |
           EXPO_APPLE_APP_SPECIFIC_PASSWORD=${{ secrets.EAS_APPLE_PASSWORD }} \
